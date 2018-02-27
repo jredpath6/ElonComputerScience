@@ -1,0 +1,48 @@
+-- Jack Redpath
+-- February 19, 2018
+-- Lab 1: Krypton
+
+sshLogin command: ssh krypton.labs.overthewire.org -p 2220 -l krypton(Lvl#)
+
+Lvl 0: 	echo "S1JZUFRPTklTR1JFQVQ=" | base64 -d
+		return: KRYPTONISGREAT
+
+Lvl 1: 	cd /krypton/krypton1
+		pico krypton2
+		srting to decrypt: YRIRY GJB CNFFJBEQ EBGGRA
+		use python script def lvl2() to decrypt string
+		LEVEL TWO PASSWORD ROTTEN
+		-- see python script attached in .zip file
+
+Lvl 2: 	cd /krypton/krypton2
+		pico krypton3
+		use string "OMQEMDUEQMEK"
+		replaced this string and ran same program as lvl2
+		CAESARISEASY
+		-- see python script attached in .zip file
+
+Lvl 3: 	- cd /krypton/krypton3
+		- less krypton 4
+		returns: KSVVW BGSJD SVSIS VXBMN YQUUK BNWCU ANMJS
+		- used python script def lvl3() to decrypt based on frequency table found on https://www3.nd.edu/~busiforc/handouts/cryptography/cryptography%20hints.html
+		- printed: WELLD ONETH ELEVE LFOUR PASSW ORDIS BRUTE
+		- password is: BRUTE
+		-- see python script attached in .zip file
+
+Lvl 4:	- cd /krypton/krypton4
+		- less krypton 5
+		returns: HCIKV RJOX
+		- use blackchamber to find the most common words in found1
+		- matched the most frequently found letter to E and then did cipherText - found key = password
+		Password: CLEAR TEXT
+		- see .jpg in zip file
+
+Lvl 5:	- cd /krypton/krypton5
+		- less krypton 6
+		returns: BELOS Z
+		- used blackchamber to find frequencies in found 2 - used this to build password by matching E to similar frequency peaks presented in blackchamber (used cipher - keyFound = password)
+		password: RANDOM
+		- see .jpg in zip file
+
+
+
