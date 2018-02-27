@@ -27,7 +27,10 @@ def gameSetup():
     wordMatches = []
     gameDict = {}
     dashString = ""
-    chooseLength = int(input('Provide a length for the word: '))
+    userLength = input('Provide a length for the word: ')
+    while userLength.isdigit() is False:
+        userLength = input('Try again. Provide a vaild integer for word length: ')
+    chooseLength = int(userLength)
     while chooseLength < 0 or chooseLength > getMaxWordLength():
         chooseLength = int(input('Try again. Provide a vaild word length: '))
     numGuesses = int(input('How many guesses would you like? '))
@@ -61,7 +64,8 @@ def play():
         secretWord = secretWord.replace(letter,'-')
     while(numGuesses != 0):
         print('You have', numGuesses, 'guesses remaining.')
-        print('Letters previously used:', lettersUsed[0:])
+        if showUsed.upper() == 'Y':
+            print('Letters previously used:', lettersUsed[0:])            
         print(secretWord)
         letterGuessed = input('What letter do you guess? ')
         if letterGuessed in lettersUsed:
@@ -83,12 +87,20 @@ def play():
             gameDict.clear()
             gameDict.update(blankDict)
             blankDict.clear()
-            print(gameDict)
+#            print(gameDict)
             numGuesses -= 1
         
-    print('GAME OVER!')
-        
-    
+    if(numGuesses == 0):
+        print('GAME OVER!')
+        print('The secret word was', aWord)
+        playAgain = input('Would you like to play again? (Y/N) ')
+        while playAgain.upper() != 'Y' and playAgain.upper() != 'N':
+            playAgain = input('Try again. Please answer Y/N: ')
+        if playAgain.upper() == 'Y':
+            print('***NEW GAME***')
+            play()
+        if playAgain.upper() == 'N':
+            print('Bye!')
     
     
     
